@@ -1,0 +1,258 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		80ED19261546A7B700B630EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80ED19251546A7B700B630EC /* Foundation.framework */; };
+		80ED19481546ACCA00B630EC /* Cluster.m in Sources */ = {isa = PBXBuildFile; fileRef = 80ED193A1546ACCA00B630EC /* Cluster.m */; };
+		80ED19491546ACCA00B630EC /* CPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 80ED193C1546ACCA00B630EC /* CPoint.m */; };
+		80ED194A1546ACCA00B630EC /* DBScan.m in Sources */ = {isa = PBXBuildFile; fileRef = 80ED19401546ACCA00B630EC /* DBScan.m */; };
+		80ED194B1546ACCA00B630EC /* EuclidianDistanceFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 80ED19431546ACCA00B630EC /* EuclidianDistanceFunction.m */; };
+		80ED194C1546ACCA00B630EC /* FileSourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 80ED19451546ACCA00B630EC /* FileSourceLoader.m */; };
+		80ED194D1546ACCA00B630EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 80ED19461546ACCA00B630EC /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		80ED191F1546A7B700B630EC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		80ED19211546A7B700B630EC /* DBScan */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DBScan; sourceTree = BUILT_PRODUCTS_DIR; };
+		80ED19251546A7B700B630EC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		80ED19391546ACCA00B630EC /* Cluster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cluster.h; sourceTree = "<group>"; };
+		80ED193A1546ACCA00B630EC /* Cluster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cluster.m; sourceTree = "<group>"; };
+		80ED193B1546ACCA00B630EC /* CPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPoint.h; sourceTree = "<group>"; };
+		80ED193C1546ACCA00B630EC /* CPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPoint.m; sourceTree = "<group>"; };
+		80ED193F1546ACCA00B630EC /* DBScan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBScan.h; sourceTree = "<group>"; };
+		80ED19401546ACCA00B630EC /* DBScan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBScan.m; sourceTree = "<group>"; };
+		80ED19411546ACCA00B630EC /* DistanceFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistanceFunction.h; sourceTree = "<group>"; };
+		80ED19421546ACCA00B630EC /* EuclidianDistanceFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EuclidianDistanceFunction.h; sourceTree = "<group>"; };
+		80ED19431546ACCA00B630EC /* EuclidianDistanceFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EuclidianDistanceFunction.m; sourceTree = "<group>"; };
+		80ED19441546ACCA00B630EC /* FileSourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSourceLoader.h; sourceTree = "<group>"; };
+		80ED19451546ACCA00B630EC /* FileSourceLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSourceLoader.m; sourceTree = "<group>"; };
+		80ED19461546ACCA00B630EC /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		80ED19471546ACCA00B630EC /* SourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceLoader.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		80ED191E1546A7B700B630EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80ED19261546A7B700B630EC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		80ED19161546A7B700B630EC = {
+			isa = PBXGroup;
+			children = (
+				80ED19381546ACCA00B630EC /* Sources */,
+				80ED19241546A7B700B630EC /* Frameworks */,
+				80ED19221546A7B700B630EC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		80ED19221546A7B700B630EC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				80ED19211546A7B700B630EC /* DBScan */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		80ED19241546A7B700B630EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				80ED19251546A7B700B630EC /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		80ED19381546ACCA00B630EC /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				80ED19391546ACCA00B630EC /* Cluster.h */,
+				80ED193A1546ACCA00B630EC /* Cluster.m */,
+				80ED193B1546ACCA00B630EC /* CPoint.h */,
+				80ED193C1546ACCA00B630EC /* CPoint.m */,
+				80ED193F1546ACCA00B630EC /* DBScan.h */,
+				80ED19401546ACCA00B630EC /* DBScan.m */,
+				80ED19411546ACCA00B630EC /* DistanceFunction.h */,
+				80ED19421546ACCA00B630EC /* EuclidianDistanceFunction.h */,
+				80ED19431546ACCA00B630EC /* EuclidianDistanceFunction.m */,
+				80ED19441546ACCA00B630EC /* FileSourceLoader.h */,
+				80ED19451546ACCA00B630EC /* FileSourceLoader.m */,
+				80ED19461546ACCA00B630EC /* main.m */,
+				80ED19471546ACCA00B630EC /* SourceLoader.h */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		80ED19201546A7B700B630EC /* DBScan */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80ED19301546A7B700B630EC /* Build configuration list for PBXNativeTarget "DBScan" */;
+			buildPhases = (
+				80ED191D1546A7B700B630EC /* Sources */,
+				80ED191E1546A7B700B630EC /* Frameworks */,
+				80ED191F1546A7B700B630EC /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DBScan;
+			productName = DBScan;
+			productReference = 80ED19211546A7B700B630EC /* DBScan */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		80ED19181546A7B700B630EC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Modeling Valley";
+			};
+			buildConfigurationList = 80ED191B1546A7B700B630EC /* Build configuration list for PBXProject "DBScan" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 80ED19161546A7B700B630EC;
+			productRefGroup = 80ED19221546A7B700B630EC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				80ED19201546A7B700B630EC /* DBScan */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		80ED191D1546A7B700B630EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80ED19481546ACCA00B630EC /* Cluster.m in Sources */,
+				80ED19491546ACCA00B630EC /* CPoint.m in Sources */,
+				80ED194A1546ACCA00B630EC /* DBScan.m in Sources */,
+				80ED194B1546ACCA00B630EC /* EuclidianDistanceFunction.m in Sources */,
+				80ED194C1546ACCA00B630EC /* FileSourceLoader.m in Sources */,
+				80ED194D1546ACCA00B630EC /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		80ED192E1546A7B700B630EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		80ED192F1546A7B700B630EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		80ED19311546A7B700B630EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		80ED19321546A7B700B630EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		80ED191B1546A7B700B630EC /* Build configuration list for PBXProject "DBScan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80ED192E1546A7B700B630EC /* Debug */,
+				80ED192F1546A7B700B630EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		80ED19301546A7B700B630EC /* Build configuration list for PBXNativeTarget "DBScan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80ED19311546A7B700B630EC /* Debug */,
+				80ED19321546A7B700B630EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 80ED19181546A7B700B630EC /* Project object */;
+}
