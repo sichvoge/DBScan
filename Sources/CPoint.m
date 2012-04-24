@@ -10,7 +10,7 @@
 
 @implementation CPoint
 
-@synthesize coordinates;
+@synthesize coordinates = _coordinates;
 
 -(id)init 
 {
@@ -18,41 +18,41 @@
     
     if(self) 
     {
-        coordinates = [NSMutableArray array];
+        _coordinates = [NSMutableArray array];
     }
     
     return self;
 }
 
--(void)setCoordinate:(float)coordinate
+-(void)addCoordinate:(float)coordinate
 {
-    [coordinates addObject:[NSNumber numberWithFloat:coordinate]];
+    [_coordinates addObject:[NSNumber numberWithFloat:coordinate]];
 }
 
 -(float)getCoordinateAtPosition:(int)position
 {
-    if(position < 0 || position > [coordinates count]) 
+    if(position < 0 || position > [_coordinates count]) 
     {
         [NSException raise:@"Invalid input." format:@"position %i is invalid",position];
     }
     
-    return [[coordinates objectAtIndex:position] floatValue];
+    return [[_coordinates objectAtIndex:position] floatValue];
 }
 
 -(int)numberOfDimensions
 {
-    return coordinates.count;
+    return _coordinates.count;
 }
 
 -(NSString *)stringValue 
 {
     NSString *result = @"";
     
-    for(int i=0;i<coordinates.count;i++) 
+    for(int i=0;i<_coordinates.count;i++) 
     {
-        result = [result stringByAppendingString:[[coordinates objectAtIndex:i]stringValue]];
+        result = [result stringByAppendingString:[[_coordinates objectAtIndex:i]stringValue]];
         
-        if(i < (coordinates.count - 1))
+        if(i < (_coordinates.count - 1))
         {
             result = [result stringByAppendingString:@","];
         }
@@ -68,7 +68,7 @@
     for(int i=0;i<point.count;i++) 
     {
         float coordinate = [[point objectAtIndex:i] floatValue];
-        [copy setCoordinate:coordinate];
+        [copy addCoordinate:coordinate];
     }
     
     return copy;
@@ -88,14 +88,14 @@
     
     CPoint *other = object;
     
-    if(coordinates.count != other.coordinates.count)
+    if(_coordinates.count != other.coordinates.count)
     {
         return NO;
     }
     
-    for(int i=0;i<coordinates.count;i++) 
+    for(int i=0;i<_coordinates.count;i++) 
     {
-        float selfAttr = [[coordinates objectAtIndex:i]floatValue];
+        float selfAttr = [[_coordinates objectAtIndex:i]floatValue];
         float otherAttr = [[[other coordinates]objectAtIndex:i]floatValue];
         
         if(selfAttr != otherAttr)

@@ -10,12 +10,12 @@
 
 @interface CPoint : NSObject
 {
-    NSMutableArray *coordinates;
+    NSMutableArray *_coordinates;
 }
 
 @property (readonly) NSArray *coordinates;
 
--(void)setCoordinate:(float)coordinate;
+-(void)addCoordinate:(float)coordinate;
 
 -(float)getCoordinateAtPosition:(int)position;
 

@@ -20,23 +20,22 @@ int main(int argc, const char *argv[])
         
         id <SourceLoader> loader = [FileSourceLoader new];
         
-        NSArray *stringPoints = [loader load:[[[NSProcessInfo processInfo] arguments] objectAtIndex:1]];
+        NSArray *pointsEntries = [loader load:[[[NSProcessInfo processInfo] arguments] objectAtIndex:1]];
         
-        NSMutableArray *points = [NSMutableArray arrayWithCapacity:stringPoints.count]; 
+        NSMutableArray *points = [NSMutableArray arrayWithCapacity:pointsEntries.count]; 
         
-        for(NSString *point in stringPoints)
+        for(NSString *pointEntry in pointsEntries)
         {
-            if([point length] > 0) 
+            if([pointEntry length] > 0) 
             {
-                CPoint *newPoint = [CPoint new];
-                NSArray *attributes = [point componentsSeparatedByString:@","];
+                CPoint *point = [CPoint new];
+                NSArray *coordinates = [pointEntry componentsSeparatedByString:@","];
                 
-                for(NSString *attr in attributes)
-                {
-                    [newPoint setCoordinate:[attr floatValue]]; 
+                for(NSString *coordinate in coordinates) {
+                    [point addCoordinate:[coordinate floatValue]];
                 }
                 
-                [points addObject:newPoint];
+                [points addObject:point];
             }
         }
         
