@@ -21,6 +21,6 @@
 -(void)addPointToCluster:(CPoint *)point;
 -(CPoint *)getPointFromCluster:(int)index;
 -(int)size;
--(NSString *)stringValue;
+-(NSString *)description;
 
 @end

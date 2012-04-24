@@ -21,7 +21,7 @@
 
 -(int)numberOfDimensions;
 
--(NSString *)stringValue;
+-(NSString *)description;
 
 +(id)initWithPointArray:(NSArray *)point;
 

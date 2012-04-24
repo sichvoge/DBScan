@@ -25,7 +25,7 @@
     
     float distance = sqrtf(sum);
     
-    //NSLog(@"distance between (%@) and (%@): %f",[point1 stringValue],[point2 stringValue],distance);
+    //NSLog(@"distance between (%@) and (%@): %f",[point1 description],[point2 description],distance);
     
     return distance;
 }

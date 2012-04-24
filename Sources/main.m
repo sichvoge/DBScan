@@ -64,7 +64,7 @@ int main(int argc, const char *argv[])
         
         for(Cluster *c in cluster)
         {
-            NSLog(@"\nCluster %i: \n%@", index++,[c stringValue]);
+            NSLog(@"\nCluster %i: \n%@", index++,[c description]);
             sumPoints += [c size];
         }
     }

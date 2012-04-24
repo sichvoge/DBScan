@@ -44,13 +44,13 @@
     return _coordinates.count;
 }
 
--(NSString *)stringValue 
+-(NSString *)description 
 {
     NSString *result = @"";
     
     for(int i=0;i<_coordinates.count;i++) 
     {
-        result = [result stringByAppendingString:[[_coordinates objectAtIndex:i]stringValue]];
+        result = [result stringByAppendingString:[[_coordinates objectAtIndex:i]description]];
         
         if(i < (_coordinates.count - 1))
         {

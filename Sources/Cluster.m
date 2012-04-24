@@ -44,7 +44,7 @@
     return [points objectAtIndex:index];
 }
 
--(NSString *)stringValue
+-(NSString *)description
 {
     NSString *result = @"";
     
@@ -52,7 +52,7 @@
     
     for(int ptrIndex = 0; ptrIndex < points.count; ptrIndex++)
     {
-        result = [result stringByAppendingString:[[points objectAtIndex:ptrIndex]stringValue]];
+        result = [result stringByAppendingString:[[points objectAtIndex:ptrIndex]description]];
         
         if(ptrIndex < (points.count - 1))
         {
