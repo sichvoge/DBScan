@@ -14,12 +14,13 @@
 #include "EuclidianDistanceFunction.h"
 #include "DistanceFunction.h"
 
-int main(int argc, const char * argv[])
+int main(int argc, const char *argv[])
 {
     @autoreleasepool {
+        
         id <SourceLoader> loader = [FileSourceLoader new];
         
-        NSArray *stringPoints = [loader load:@"/Users/christianvogel/Documents/workspace/DBScan/data/data2d_1545.csv"];
+        NSArray *stringPoints = [loader load:[[[NSProcessInfo processInfo] arguments] objectAtIndex:1]];
         
         NSMutableArray *points = [NSMutableArray arrayWithCapacity:stringPoints.count]; 
         
