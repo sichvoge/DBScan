@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#include "FileSourceLoader.h"
-#include "SourceLoader.h"
-#include "CPoint.h"
-#include "DBScan.h"
-#include "EuclidianDistanceFunction.h"
-#include "DistanceFunction.h"
+#import "FileSourceLoader.h"
+#import "SourceLoader.h"
+#import "CPoint.h"
+#import "DBScan.h"
+#import "EuclidianDistanceFunction.h"
+#import "DistanceFunction.h"
 
 int main(int argc, const char *argv[])
 {

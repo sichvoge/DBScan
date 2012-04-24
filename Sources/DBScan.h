@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#include "DistanceFunction.h"
-#include "Cluster.h"
+#import "DistanceFunction.h"
+#import "Cluster.h"
 
 @interface DBScan : NSObject
 {

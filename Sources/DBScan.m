@@ -7,7 +7,7 @@
 //
 
 #import "DBScan.h"
-#include "EuclidianDistanceFunction.h"
+#import "EuclidianDistanceFunction.h"
 
 @implementation DBScan
 
