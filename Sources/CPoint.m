@@ -61,13 +61,13 @@
     return result;
 }
 
-+(id)initWithPointArray:(NSArray *)point
++(id)pointWithCoordinates:(NSArray *)coordinates
 {
     CPoint *copy = [CPoint new];
     
-    for(int i=0;i<point.count;i++) 
+    for(int i=0;i<coordinates.count;i++) 
     {
-        float coordinate = [[point objectAtIndex:i] floatValue];
+        float coordinate = [[coordinates objectAtIndex:i] floatValue];
         [copy addCoordinate:coordinate];
     }
     

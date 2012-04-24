@@ -23,6 +23,6 @@
 
 -(NSString *)description;
 
-+(id)initWithPointArray:(NSArray *)point;
++(id)pointWithCoordinates:(NSArray *)coordinates;
 
 @end
