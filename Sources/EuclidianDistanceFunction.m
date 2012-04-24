@@ -12,15 +12,15 @@
 
 -(float)calculate:(CPoint *)point1 :(CPoint *)point2
 {
-    if (point1.numberOfDimensions != point2.numberOfDimensions) {
+    if (point1.dimension != point2.dimension) {
         [NSException raise:@"Invalid input" format:@"dimension of both points are not equal"];
     }
     
     float sum = .0f;
     
-    for (int i = 0; i < point1.numberOfDimensions; i++) 
+    for (int i = 0; i < point1.dimension; i++) 
     {
-        sum += powf([point1 getCoordinateAtPosition:i]-[point2 getCoordinateAtPosition:i], 2.0);
+        sum += powf([point1 coordinateAtPosition:i]-[point2 coordinateAtPosition:i], 2.0);
     }
     
     float distance = sqrtf(sum);

@@ -14,12 +14,11 @@
 }
 
 @property (readonly) NSArray *coordinates;
+@property (readonly) int dimension;
 
 -(void)addCoordinate:(float)coordinate;
 
--(float)getCoordinateAtPosition:(int)position;
-
--(int)numberOfDimensions;
+-(float)coordinateAtPosition:(int)position;
 
 -(NSString *)description;
 

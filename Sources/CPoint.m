@@ -29,7 +29,7 @@
     [_coordinates addObject:[NSNumber numberWithFloat:coordinate]];
 }
 
--(float)getCoordinateAtPosition:(int)position
+-(float)coordinateAtPosition:(int)position
 {
     if(position < 0 || position > [_coordinates count]) 
     {
@@ -39,7 +39,7 @@
     return [[_coordinates objectAtIndex:position] floatValue];
 }
 
--(int)numberOfDimensions
+-(int)dimension
 {
     return _coordinates.count;
 }
