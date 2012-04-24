@@ -11,6 +11,6 @@
 
 @protocol DistanceFunction <NSObject>
 
--(float)calculate:(CPoint*) point1: (CPoint*) point2;
+-(float)calculate:(CPoint *) point1: (CPoint *) point2;
 
 @end

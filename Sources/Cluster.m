@@ -29,7 +29,7 @@
     return points.count;
 }
 
--(void)addPointToCluster:(CPoint*)point
+-(void)addPointToCluster:(CPoint *)point
 {
     [points addObject:point];
 }
@@ -39,12 +39,12 @@
     return [points containsObject:point];
 }
 
--(CPoint*)getPointFromCluster:(int) index
+-(CPoint *)getPointFromCluster:(int)index
 {
     return [points objectAtIndex:index];
 }
 
--(NSString*)stringValue
+-(NSString *)stringValue
 {
     NSString *result = @"";
     

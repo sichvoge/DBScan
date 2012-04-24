@@ -11,7 +11,7 @@
 
 @implementation DBScan
 
--(NSArray*)cluster:(NSArray*)points :(float)eps: (int)minPtr :(id <DistanceFunction>) function;
+-(NSArray *)cluster:(NSArray *)points :(float)eps: (int)minPtr :(id <DistanceFunction>) function;
 {
     epsilon = eps;
     pointSet = points;
@@ -22,7 +22,7 @@
     return [self compute];
 }
 
--(NSArray*)cluster:(NSArray*)points :(float)eps: (int)minPtr
+-(NSArray *)cluster:(NSArray *)points :(float)eps: (int)minPtr
 {
     epsilon = eps;
     pointSet = points;
@@ -34,7 +34,7 @@
     return [self compute];
 }
 
--(NSArray*)compute
+-(NSArray *)compute
 {
     int numberOfPoints = pointSet.count;
     
@@ -42,7 +42,7 @@
     visitedPoints = [NSMutableArray arrayWithCapacity:numberOfPoints];
     noise = [NSMutableArray array];
     
-    NSMutableArray* result = [NSMutableArray array];
+    NSMutableArray *result = [NSMutableArray array];
     
     for(int index=0;index < numberOfPoints; index++) 
     {
@@ -52,7 +52,7 @@
         {
             [visitedPoints addObject:current];
             
-            NSMutableArray* neighbors = [self findNeighbors:index];
+            NSMutableArray *neighbors = [self findNeighbors:index];
             
             if(neighbors.count < minNumberOfPoint) 
             {
@@ -73,9 +73,9 @@
     return result;
 }
 
--(NSMutableArray*)findNeighbors:(int)point_id
+-(NSMutableArray *)findNeighbors:(int)point_id
 {
-    NSMutableArray* neighbors = [NSMutableArray array];
+    NSMutableArray *neighbors = [NSMutableArray array];
     
     for(int ptrIndex = 0; ptrIndex < distanceM.count; ptrIndex++)
     {
@@ -88,9 +88,9 @@
     return neighbors;
 }
 
--(Cluster*)expandCluster:(CPoint*) current: (NSMutableArray*) n
+-(Cluster *)expandCluster:(CPoint *) current: (NSMutableArray *) n
 {
-    Cluster* cluster = [Cluster new];
+    Cluster *cluster = [Cluster new];
     
     [cluster addPointToCluster:current];
     [pointsMappedTocluster addObject:current];
@@ -123,7 +123,7 @@
     return cluster;
 }
 
--(void)merge:(NSMutableArray*) currentNeighbors:(NSArray*)newNeighbors
+-(void)merge:(NSMutableArray *) currentNeighbors:(NSArray *)newNeighbors
 {
     for(NSNumber *p in newNeighbors)
     {
@@ -134,7 +134,7 @@
     }
 }
 
--(void)computeDistanceMatrix:(NSArray*)points
+-(void)computeDistanceMatrix:(NSArray *)points
 {
     int numberOfPoints = points.count;
     

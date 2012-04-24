@@ -13,7 +13,7 @@
     NSMutableArray *coordinates;
 }
 
-@property (readonly) NSArray* coordinates;
+@property (readonly) NSArray *coordinates;
 
 -(void)setCoordinate:(float)coordinate;
 
@@ -21,8 +21,8 @@
 
 -(int)numberOfDimensions;
 
--(NSString*)stringValue;
+-(NSString *)stringValue;
 
-+(id)initWithPointArray:(NSArray*)point;
++(id)initWithPointArray:(NSArray *)point;
 
 @end

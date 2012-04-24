@@ -44,7 +44,7 @@
     return coordinates.count;
 }
 
--(NSString*)stringValue 
+-(NSString *)stringValue 
 {
     NSString *result = @"";
     
@@ -61,9 +61,9 @@
     return result;
 }
 
-+(id)initWithPointArray:(NSArray*)point
++(id)initWithPointArray:(NSArray *)point
 {
-    CPoint* copy = [CPoint new];
+    CPoint *copy = [CPoint new];
     
     for(int i=0;i<point.count;i++) 
     {
@@ -86,7 +86,7 @@
         return NO;
     }
     
-    CPoint * other = object;
+    CPoint *other = object;
     
     if(coordinates.count != other.coordinates.count)
     {
