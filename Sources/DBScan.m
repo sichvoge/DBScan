@@ -43,7 +43,7 @@
     _visitedPoints = [NSMutableArray arrayWithCapacity:numberOfPoints];
     _noise = [NSMutableArray array];
     
-    NSMutableArray *result = [NSMutableArray array];
+    NSMutableArray *clusters = [NSMutableArray array];
     
     for(int index=0;index < numberOfPoints; index++) 
     {
@@ -63,15 +63,16 @@
             {
                 Cluster *cluster = [self expandCluster:current :neighbors];
                 
-                [result addObject:cluster];
+                [clusters addObject:cluster];
             }
         }
     }
     
+    NSLog(@"%i clusters found",(int)clusters.count);
     NSLog(@"%i points mapped to cluster",(int)_pointsMappedTocluster.count);
     NSLog(@"%i noise points",(int)_noise.count);
     
-    return result;
+    return clusters;
 }
 
 -(NSMutableArray *)findNeighbors:(int)point_id
