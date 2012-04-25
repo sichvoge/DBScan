@@ -44,7 +44,7 @@ int main(int argc, const char *argv[])
         NSDate *startTime = [NSDate date];
         NSLog(@"start clustering process (%@)",startTime);
         
-        NSArray *cluster = [[DBScan new]cluster:points :1.0f :5];
+        NSArray *cluster = [[DBScan new] computeWithPoints:points epsilon:1.0f minNumberOfPointsInCluster:5];
         
         NSDate *endTime = [NSDate date];
         NSLog(@"finished clustering process (%@)",endTime);

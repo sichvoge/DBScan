@@ -11,31 +11,19 @@
 
 @implementation DBScan
 
--(NSArray *)cluster:(NSArray *)points :(float)eps: (int)minPtr :(id <DistanceFunction>) function;
+-(NSArray *)computeWithPoints:(NSArray *)points epsilon:(float)eps minNumberOfPointsInCluster:(int)minLimit
+{
+    return [self computeWithPoints:points epsilon:eps minNumberOfPointsInCluster:minLimit distanceFunction:[EuclidianDistanceFunction new]];
+}
+
+-(NSArray *)computeWithPoints:(NSArray *)points epsilon:(float)eps minNumberOfPointsInCluster:(int)minLimit distanceFunction:(id <DistanceFunction>)function;
 {
     epsilon = eps;
     pointSet = points;
-    minNumberOfPoint = minPtr;
+    minNumberOfPoint = minLimit;
     distfunction = function;
     [self computeDistanceMatrix:points];
     
-    return [self compute];
-}
-
--(NSArray *)cluster:(NSArray *)points :(float)eps: (int)minPtr
-{
-    epsilon = eps;
-    pointSet = points;
-    minNumberOfPoint = minPtr;
-    distfunction = [EuclidianDistanceFunction new];
-    
-    [self computeDistanceMatrix:points];
-    
-    return [self compute];
-}
-
--(NSArray *)compute
-{
     int numberOfPoints = pointSet.count;
     
     pointsMappedTocluster = [NSMutableArray arrayWithCapacity:numberOfPoints];

@@ -23,7 +23,7 @@
     id <DistanceFunction> distfunction;
 }
 
--(NSArray *)cluster:(NSArray *)points :(float)eps: (int)minPtr :(id <DistanceFunction>) function;
--(NSArray *)cluster:(NSArray *)points :(float)eps: (int)minPtr;
+-(NSArray *)computeWithPoints:(NSArray *)points epsilon:(float)eps minNumberOfPointsInCluster:(int)minLimit;
+-(NSArray *)computeWithPoints:(NSArray *)points epsilon:(float)eps minNumberOfPointsInCluster:(int)minLimit distanceFunction:(id <DistanceFunction>)function;
 
 @end
