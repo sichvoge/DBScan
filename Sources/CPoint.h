@@ -17,9 +17,7 @@
 @property (readonly) int dimension;
 
 -(void)addCoordinate:(float)coordinate;
-
 -(float)coordinateAtPosition:(int)position;
-
 -(NSString *)description;
 
 +(id)pointWithCoordinates:(NSArray *)coordinates;

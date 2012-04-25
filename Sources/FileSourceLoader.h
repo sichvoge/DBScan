@@ -7,11 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import "SourceLoader.h"
 
 @interface FileSourceLoader : NSObject <SourceLoader>
-
-
 
 @end

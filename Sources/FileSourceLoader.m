@@ -13,10 +13,7 @@
 -(NSArray *)load:(NSString *)url 
 {
     NSString *content = [NSString stringWithContentsOfFile:url encoding:NSUTF8StringEncoding error:nil];
-    
-    NSArray *lines = [content componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\r\n"]];
-    
-    return lines;
+    return [content componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\r\n"]];
 }
 
 @end
