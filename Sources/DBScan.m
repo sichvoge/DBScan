@@ -117,29 +117,29 @@
 - (NSArray *)computeDistanceMatrix:(NSArray *)points {
     int numberOfPoints = points.count;
 
-    NSMutableArray *distanceM = [NSMutableArray arrayWithCapacity:numberOfPoints];
+    NSMutableArray *distanceMatrix = [NSMutableArray arrayWithCapacity:numberOfPoints];
 
     for (int index = 0; index < numberOfPoints; index++) {
-        [distanceM insertObject:[NSMutableArray arrayWithCapacity:numberOfPoints] atIndex:index];
+        [distanceMatrix insertObject:[NSMutableArray arrayWithCapacity:numberOfPoints] atIndex:index];
     }
 
     for (int row = 0; row < numberOfPoints; row++) {
         for (int col = row; col < numberOfPoints; col++) {
             if (col == row) {
-                [[distanceM objectAtIndex:row] insertObject:[[NSNumber alloc] initWithFloat:.0f] atIndex:col];
+                [[distanceMatrix objectAtIndex:row] insertObject:[[NSNumber alloc] initWithFloat:.0f] atIndex:col];
             }
             else {
                 float distance = [_distanceFunction calculate:[points objectAtIndex:row]:[points objectAtIndex:col]];
 
                 NSNumber *number = [[NSNumber alloc] initWithFloat:distance];
 
-                [[distanceM objectAtIndex:row] insertObject:number atIndex:col];
-                [[distanceM objectAtIndex:col] insertObject:number atIndex:row];
+                [[distanceMatrix objectAtIndex:row] insertObject:number atIndex:col];
+                [[distanceMatrix objectAtIndex:col] insertObject:number atIndex:row];
             }
         }
     }
 
-    return [NSArray arrayWithArray:distanceM];	// return immutable array
+    return [NSArray arrayWithArray:distanceMatrix];	// return immutable array
 }
 
 @end
