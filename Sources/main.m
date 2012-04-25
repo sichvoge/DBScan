@@ -44,7 +44,7 @@ int main(int argc, const char *argv[])
         NSDate *startTime = [NSDate date];
         NSLog(@"start clustering process (%@)",startTime);
         
-        NSArray *cluster = [[DBScan new] computeWithPoints:points epsilon:1.0f minNumberOfPointsInCluster:5];
+        NSArray *clusters = [[[DBScan alloc] initWithPoints:points epsilon:1.0f minNumberOfPointsInCluster:5] clusters];
         
         NSDate *endTime = [NSDate date];
         NSLog(@"finished clustering process (%@)",endTime);
@@ -53,7 +53,7 @@ int main(int argc, const char *argv[])
         
         NSLog(@"total processing time: %fs",totalProcessingTimeInSeconds);
         
-        if(cluster.count == 0)
+        if(clusters.count == 0)
         {
             NSLog(@"no cluster");
             return 0;
@@ -62,7 +62,7 @@ int main(int argc, const char *argv[])
         int index = 1;
         int sumPoints = 0;
         
-        for(Cluster *c in cluster)
+        for(Cluster *c in clusters)
         {
             NSLog(@"\nCluster %i: \n%@", index++,[c description]);
             sumPoints += [c size];

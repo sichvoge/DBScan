@@ -11,40 +11,53 @@
 
 @implementation DBScan
 
--(NSArray *)computeWithPoints:(NSArray *)points epsilon:(float)eps minNumberOfPointsInCluster:(int)minLimit
+- (id)initWithPoints:(NSArray *)points epsilon:(float)epsilon minNumberOfPointsInCluster:(int)minNumberOfPoints
 {
-    return [self computeWithPoints:points epsilon:eps minNumberOfPointsInCluster:minLimit distanceFunction:[EuclidianDistanceFunction new]];
+    return [self initWithPoints:points 
+                        epsilon:epsilon 
+     minNumberOfPointsInCluster:minNumberOfPoints 
+               distanceFunction:[EuclidianDistanceFunction new]];
 }
 
--(NSArray *)computeWithPoints:(NSArray *)points epsilon:(float)eps minNumberOfPointsInCluster:(int)minLimit distanceFunction:(id <DistanceFunction>)function;
+- (id)initWithPoints:(NSArray *)points epsilon:(float)epsilon minNumberOfPointsInCluster:(int)minNumberOfPoints distanceFunction:(id <DistanceFunction>)function
 {
-    epsilon = eps;
-    pointSet = points;
-    minNumberOfPoint = minLimit;
-    distfunction = function;
-    [self computeDistanceMatrix:points];
+    self = [super init];
+        
+    if(self) 
+    {
+        _epsilon = epsilon;
+        _points = points;
+        _minNumberOfPoints = minNumberOfPoints;
+        _distanceFunction = function;
+        _distanceMatrix = [self computeDistanceMatrix:points];
+    }
+        
+    return self;
+}
+
+-(NSArray *)clusters
+{
+    int numberOfPoints = _points.count;
     
-    int numberOfPoints = pointSet.count;
-    
-    pointsMappedTocluster = [NSMutableArray arrayWithCapacity:numberOfPoints];
-    visitedPoints = [NSMutableArray arrayWithCapacity:numberOfPoints];
-    noise = [NSMutableArray array];
+    _pointsMappedTocluster = [NSMutableArray arrayWithCapacity:numberOfPoints];
+    _visitedPoints = [NSMutableArray arrayWithCapacity:numberOfPoints];
+    _noise = [NSMutableArray array];
     
     NSMutableArray *result = [NSMutableArray array];
     
     for(int index=0;index < numberOfPoints; index++) 
     {
-        CPoint *current = [pointSet objectAtIndex:index];
+        CPoint *current = [_points objectAtIndex:index];
         
-        if(![visitedPoints containsObject:current]) 
+        if(![_visitedPoints containsObject:current]) 
         {
-            [visitedPoints addObject:current];
+            [_visitedPoints addObject:current];
             
             NSMutableArray *neighbors = [self findNeighbors:index];
             
-            if(neighbors.count < minNumberOfPoint) 
+            if(neighbors.count < _minNumberOfPoints) 
             {
-                [noise addObject:current];
+                [_noise addObject:current];
             } 
             else 
             {
@@ -55,8 +68,8 @@
         }
     }
     
-    NSLog(@"%i points mapped to cluster",(int)pointsMappedTocluster.count);
-    NSLog(@"%i noise points",(int)noise.count);
+    NSLog(@"%i points mapped to cluster",(int)_pointsMappedTocluster.count);
+    NSLog(@"%i noise points",(int)_noise.count);
     
     return result;
 }
@@ -65,9 +78,9 @@
 {
     NSMutableArray *neighbors = [NSMutableArray array];
     
-    for(int ptrIndex = 0; ptrIndex < distanceM.count; ptrIndex++)
+    for(int ptrIndex = 0; ptrIndex < _distanceMatrix.count; ptrIndex++)
     {
-        if((point_id != ptrIndex) && ([[[distanceM objectAtIndex:ptrIndex]objectAtIndex:point_id]floatValue] < epsilon)) 
+        if((point_id != ptrIndex) && ([[[_distanceMatrix objectAtIndex:ptrIndex]objectAtIndex:point_id]floatValue] < _epsilon)) 
         {
             [neighbors addObject:[NSNumber numberWithInt:ptrIndex]];
         } 
@@ -81,30 +94,30 @@
     Cluster *cluster = [Cluster new];
     
     [cluster addPointToCluster:current];
-    [pointsMappedTocluster addObject:current];
+    [_pointsMappedTocluster addObject:current];
     
     for(int index = 0; index < n.count; index++)
     {
         int neighborPointID = [[n objectAtIndex:index]intValue];
         
-        CPoint *cp = [pointSet objectAtIndex:neighborPointID];
+        CPoint *cp = [_points objectAtIndex:neighborPointID];
         
-        if(![visitedPoints containsObject:cp])
+        if(![_visitedPoints containsObject:cp])
         {
-            [visitedPoints addObject:cp];
+            [_visitedPoints addObject:cp];
             
             NSArray *neighbors = [self findNeighbors:neighborPointID];
             
-            if(neighbors.count >= minNumberOfPoint)
+            if(neighbors.count >= _minNumberOfPoints)
             {
                 [self merge:n :neighbors];
             }
         }
         
-        if(![pointsMappedTocluster containsObject:cp])
+        if(![_pointsMappedTocluster containsObject:cp])
         {
             [cluster addPointToCluster:cp];
-            [pointsMappedTocluster addObject:cp];
+            [_pointsMappedTocluster addObject:cp];
         }
     }
     
@@ -122,11 +135,11 @@
     }
 }
 
--(void)computeDistanceMatrix:(NSArray *)points
+-(NSArray *)computeDistanceMatrix:(NSArray *)points
 {
     int numberOfPoints = points.count;
     
-    distanceM = [NSMutableArray arrayWithCapacity:numberOfPoints];
+    NSMutableArray *distanceM = [NSMutableArray arrayWithCapacity:numberOfPoints];
     
     for (int index = 0; index<numberOfPoints; index++) {
         [distanceM insertObject:[NSMutableArray arrayWithCapacity:numberOfPoints] atIndex:index];
@@ -142,7 +155,7 @@
             } 
             else 
             {
-                float distance = [distfunction calculate:[points objectAtIndex:row] :[points objectAtIndex:col]];
+                float distance = [_distanceFunction calculate:[points objectAtIndex:row] :[points objectAtIndex:col]];
                 
                 NSNumber *number = [[NSNumber alloc]initWithFloat:distance];
                 
@@ -151,6 +164,8 @@
             }
         }
     }
+    
+    return [NSArray arrayWithArray:distanceM]; // return immutable array
 }
 
 @end
