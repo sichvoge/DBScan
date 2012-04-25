@@ -53,7 +53,7 @@
                 [_noise addObject:current];
             }
             else {
-                Cluster *cluster = [self expandCluster:current:neighbors];
+                Cluster *cluster = [self expandClusterForPoint:current withNeighborsIndexes:neighbors];
 
                 [clusters addObject:cluster];
             }
@@ -78,14 +78,14 @@
     return neighbors;
 }
 
-- (Cluster *)expandCluster:(CPoint *)current:(NSMutableArray *)n {
+- (Cluster *)expandClusterForPoint:(CPoint *)point withNeighborsIndexes:(NSMutableArray *)neighborsIndexes {
     Cluster *cluster = [Cluster new];
 
-    [cluster addPointToCluster:current];
-    [_pointsMappedTocluster addObject:current];
+    [cluster addPointToCluster:point];
+    [_pointsMappedTocluster addObject:point];
 
-    for (int index = 0; index < n.count; index++) {
-        int neighborPointID = [[n objectAtIndex:index] intValue];
+    for (int index = 0; index < neighborsIndexes.count; index++) {
+        int neighborPointID = [[neighborsIndexes objectAtIndex:index] intValue];
 
         CPoint *cp = [_points objectAtIndex:neighborPointID];
 
@@ -95,7 +95,7 @@
             NSArray *neighbors = [self findNeighbors:neighborPointID];
 
             if (neighbors.count >= _minNumberOfPoints)
-                [self merge:n:neighbors];
+                [self merge:neighborsIndexes:neighbors];
         }
 
         if (![_pointsMappedTocluster containsObject:cp]) {
