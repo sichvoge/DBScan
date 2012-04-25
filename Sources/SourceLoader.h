@@ -10,6 +10,6 @@
 
 @protocol SourceLoader <NSObject>
 
--(NSArray *)load:(NSString *)url;
+- (NSArray *)load:(NSString *)url;
 
 @end

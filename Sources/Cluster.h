@@ -16,11 +16,11 @@
 
 @property (readonly) NSArray *points;
 
--(BOOL)contains:(CPoint *) point;
+- (BOOL)contains:(CPoint *)point;
 
--(void)addPointToCluster:(CPoint *)point;
--(CPoint *)getPointFromCluster:(int)index;
--(int)size;
--(NSString *)description;
+- (void)addPointToCluster:(CPoint *)point;
+- (CPoint *)getPointFromCluster:(int)index;
+- (int)size;
+- (NSString *)description;
 
 @end

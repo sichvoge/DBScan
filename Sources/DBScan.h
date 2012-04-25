@@ -13,18 +13,18 @@
 @interface DBScan : NSObject
 {
     @private
-    NSArray *_points;
-    float _epsilon;
-    float _minNumberOfPoints;
-    NSArray *_distanceMatrix;
-    id<DistanceFunction> _distanceFunction;
-    
+    NSArray              *_points;
+    float                 _epsilon;
+    float                 _minNumberOfPoints;
+    NSArray              *_distanceMatrix;
+    id <DistanceFunction> _distanceFunction;
+
     NSMutableArray *_pointsMappedTocluster;
     NSMutableArray *_visitedPoints;
     NSMutableArray *_noise;
 }
 
-@property(readonly) NSArray *clusters;
+@property (readonly) NSArray *clusters;
 
 - (id)initWithPoints:(NSArray *)points epsilon:(float)epsilon minNumberOfPointsInCluster:(int)minNumberOfPoints;
 - (id)initWithPoints:(NSArray *)points epsilon:(float)epsilon minNumberOfPointsInCluster:(int)minNumberOfPoints distanceFunction:(id <DistanceFunction>)function;

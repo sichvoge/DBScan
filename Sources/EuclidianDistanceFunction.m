@@ -10,23 +10,20 @@
 
 @implementation EuclidianDistanceFunction
 
--(float)calculate:(CPoint *)point1 :(CPoint *)point2
-{
-    if (point1.dimension != point2.dimension) {
+- (float)calculate:(CPoint *)point1:(CPoint *)point2 {
+    if (point1.dimension != point2.dimension)
         [NSException raise:@"Invalid input" format:@"dimension of both points are not equal"];
-    }
-    
+
     float sum = .0f;
-    
-    for (int i = 0; i < point1.dimension; i++) 
-    {
-        sum += powf([point1 coordinateAtPosition:i]-[point2 coordinateAtPosition:i], 2.0);
+
+    for (int i = 0; i < point1.dimension; i++) {
+        sum += powf([point1 coordinateAtPosition:i] - [point2 coordinateAtPosition:i], 2.0);
     }
-    
+
     float distance = sqrtf(sum);
-    
-    //NSLog(@"distance between (%@) and (%@): %f",[point1 description],[point2 description],distance);
-    
+
+	// NSLog(@"distance between (%@) and (%@): %f",[point1 description],[point2 description],distance);
+
     return distance;
 }
 
