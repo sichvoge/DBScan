@@ -16,19 +16,8 @@
 		80ED194D1546ACCA00B630EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 80ED19461546ACCA00B630EC /* main.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		80ED191F1546A7B700B630EC /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		807C24AE1549F5AB003D5302 /* data2d_1547.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = data2d_1547.csv; sourceTree = "<group>"; };
 		80ED19211546A7B700B630EC /* DBScan */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DBScan; sourceTree = BUILT_PRODUCTS_DIR; };
 		80ED19251546A7B700B630EC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		80ED19391546ACCA00B630EC /* Cluster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Cluster.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -44,7 +33,6 @@
 		80ED19451546ACCA00B630EC /* FileSourceLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FileSourceLoader.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		80ED19461546ACCA00B630EC /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = main.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		80ED19471546ACCA00B630EC /* SourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SourceLoader.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		80ED19651547EBAF00B630EC /* data2d_1545.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data2d_1545.csv; sourceTree = "<group>"; };
 		80ED19661547EBAF00B630EC /* data2d_1546.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data2d_1546.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,7 +97,7 @@
 		80ED19641547EBAF00B630EC /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				80ED19651547EBAF00B630EC /* data2d_1545.csv */,
+				807C24AE1549F5AB003D5302 /* data2d_1547.csv */,
 				80ED19661547EBAF00B630EC /* data2d_1546.csv */,
 			);
 			path = Data;
@@ -124,7 +112,6 @@
 			buildPhases = (
 				80ED191D1546A7B700B630EC /* Sources */,
 				80ED191E1546A7B700B630EC /* Frameworks */,
-				80ED191F1546A7B700B630EC /* CopyFiles */,
 			);
 			buildRules = (
 			);
