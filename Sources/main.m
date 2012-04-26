@@ -16,9 +16,15 @@
 
 int main(int argc, const char *argv[]) {
     @autoreleasepool {
-        id <SourceLoader> loader = [FileSourceLoader new];
+        NSArray *pointsEntries;
 
-        NSArray *pointsEntries = [loader load:[[[NSProcessInfo processInfo] arguments] objectAtIndex:1]];
+        if ([[[NSProcessInfo processInfo] arguments] count] > 1) {
+            id <SourceLoader> loader = [FileSourceLoader new];
+            pointsEntries = [loader load:[[[NSProcessInfo processInfo] arguments] objectAtIndex:1]];
+        } else {
+            NSLog(@"Pass the file path with point entries as an argument to this application.");
+            exit(0);
+        }
 
         NSMutableArray *points = [NSMutableArray arrayWithCapacity:pointsEntries.count];
 

@@ -86,10 +86,10 @@
 				80ED19411546ACCA00B630EC /* DistanceFunction.h */,
 				80ED19421546ACCA00B630EC /* EuclidianDistanceFunction.h */,
 				80ED19431546ACCA00B630EC /* EuclidianDistanceFunction.m */,
+				80ED19471546ACCA00B630EC /* SourceLoader.h */,
 				80ED19441546ACCA00B630EC /* FileSourceLoader.h */,
 				80ED19451546ACCA00B630EC /* FileSourceLoader.m */,
 				80ED19461546ACCA00B630EC /* main.m */,
-				80ED19471546ACCA00B630EC /* SourceLoader.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";

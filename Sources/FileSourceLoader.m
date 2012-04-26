@@ -11,8 +11,9 @@
 @implementation FileSourceLoader
 
 - (NSArray *)load:(NSString *)url {
-    NSString *content = [NSString stringWithContentsOfFile:url encoding:NSUTF8StringEncoding error:nil];
-
+    NSString *content = [NSString stringWithContentsOfFile:url
+                                                  encoding:NSUTF8StringEncoding
+                                                     error:nil];
     return [content componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\r\n"]];
 }
 
