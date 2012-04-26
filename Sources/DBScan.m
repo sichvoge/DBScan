@@ -13,9 +13,9 @@
 
 - (id)initWithPoints:(NSArray *)points epsilon:(float)epsilon minNumberOfPointsInCluster:(int)minNumberOfPoints {
     return [self initWithPoints:points
-        epsilon:epsilon
-        minNumberOfPointsInCluster:minNumberOfPoints
-        distanceFunction:[EuclidianDistanceFunction new]];
+                        epsilon:epsilon
+     minNumberOfPointsInCluster:minNumberOfPoints
+               distanceFunction:[EuclidianDistanceFunction new]];
 }
 
 - (id)initWithPoints:(NSArray *)points epsilon:(float)epsilon minNumberOfPointsInCluster:(int)minNumberOfPoints distanceFunction:(id <DistanceFunction>)function {
