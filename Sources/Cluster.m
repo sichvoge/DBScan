@@ -12,54 +12,43 @@
 
 @synthesize points;
 
--(id)init
-{
+- (id)init {
     self = [super init];
-    
-    if(self)
-    {
+
+    if (self)
         points = [NSMutableArray array];
-    }
-    
+
     return self;
 }
 
--(int)size
-{
+- (int)size {
     return points.count;
 }
 
--(void)addPointToCluster:(CPoint*)point
-{
+- (void)addPointToCluster:(CPoint *)point {
     [points addObject:point];
 }
 
--(BOOL)contains:(CPoint *)point
-{
+- (BOOL)contains:(CPoint *)point {
     return [points containsObject:point];
 }
 
--(CPoint*)getPointFromCluster:(int) index
-{
+- (CPoint *)getPointFromCluster:(int)index {
     return [points objectAtIndex:index];
 }
 
--(NSString*)stringValue
-{
+- (NSString *)description {
     NSString *result = @"";
-    
+
     result = [result stringByAppendingString:@"contained cluster points:\n"];
-    
-    for(int ptrIndex = 0; ptrIndex < points.count; ptrIndex++)
-    {
-        result = [result stringByAppendingString:[[points objectAtIndex:ptrIndex]stringValue]];
-        
-        if(ptrIndex < (points.count - 1))
-        {
+
+    for (int ptrIndex = 0; ptrIndex < points.count; ptrIndex++) {
+        result = [result stringByAppendingString:[[points objectAtIndex:ptrIndex] description]];
+
+        if (ptrIndex < (points.count - 1))
             result = [result stringByAppendingString:@"\n"];
-        }
     }
-    
+
     return result;
 }
 

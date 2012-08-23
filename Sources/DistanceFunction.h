@@ -1,5 +1,5 @@
 //
-//  FileSourceLoader.h
+//  DistanceFunction.h
 //  DBScan
 //
 //  Created by Christian Vogel on 02.03.12.
@@ -7,11 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CPoint.h"
 
-#import "SourceLoader.h"
+@protocol DistanceFunction <NSObject>
 
-@interface FileSourceLoader : NSObject <SourceLoader>
-
-
+- (float)calculate:(CPoint *)point1:(CPoint *)point2;
 
 @end

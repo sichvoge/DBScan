@@ -1,1 +1,3 @@
-DBScan implementation in Objective-C
+# DBScan Implementation in Objective-C
+
+TODO: add a detailed description
