@@ -81,7 +81,7 @@
 - (Cluster *)expandClusterForPoint:(id)point withNeighborsIndexes:(NSMutableArray *)neighborsIndexes {
     Cluster *cluster = [Cluster new];
 
-    [cluster addPointToCluster:point];
+    [cluster addToCluster:point];
     [_pointsMappedTocluster addObject:point];
 
     for (int index = 0; index < neighborsIndexes.count; index++) {
@@ -99,7 +99,7 @@
         }
 
         if (![_pointsMappedTocluster containsObject:cp]) {
-            [cluster addPointToCluster:cp];
+            [cluster addToCluster:cp];
             [_pointsMappedTocluster addObject:cp];
         }
     }

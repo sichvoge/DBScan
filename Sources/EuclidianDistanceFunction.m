@@ -7,6 +7,7 @@
 //
 
 #import "EuclidianDistanceFunction.h"
+#import "CPoint.h"
 
 @implementation EuclidianDistanceFunction
 

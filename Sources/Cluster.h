@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CPoint.h"
 
 @interface Cluster : NSObject
 {
@@ -16,10 +15,10 @@
 
 @property (readonly) NSArray *points;
 
-- (BOOL)contains:(CPoint *)point;
+- (BOOL)contains:(id)point;
 
-- (void)addPointToCluster:(CPoint *)point;
-- (CPoint *)getPointFromCluster:(int)index;
+- (void)addToCluster:(id)point;
+- (id)getFromCluster:(int)index;
 - (NSUInteger)count;
 - (NSString *)description;
 

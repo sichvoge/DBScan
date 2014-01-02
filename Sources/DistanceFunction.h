@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CPoint.h"
 
 @protocol DistanceFunction <NSObject>
 
