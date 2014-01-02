@@ -14,7 +14,7 @@
 }
 
 @property (readonly) NSArray *coordinates;
-@property (readonly) int      dimension;
+@property (readonly) NSUInteger dimension;
 
 - (void)addCoordinate:(float)coordinate;
 - (float)coordinateAtPosition:(int)position;

@@ -20,7 +20,7 @@
 
 - (void)addPointToCluster:(CPoint *)point;
 - (CPoint *)getPointFromCluster:(int)index;
-- (int)size;
+- (NSUInteger)count;
 - (NSString *)description;
 
 @end

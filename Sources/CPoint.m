@@ -32,7 +32,7 @@
     return [[_coordinates objectAtIndex:position] floatValue];
 }
 
-- (int)dimension {
+- (NSUInteger)dimension {
     return _coordinates.count;
 }
 

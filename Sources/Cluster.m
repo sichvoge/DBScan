@@ -21,7 +21,7 @@
     return self;
 }
 
-- (int)size {
+- (NSUInteger)count {
     return points.count;
 }
 
