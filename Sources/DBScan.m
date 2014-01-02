@@ -10,13 +10,13 @@
 #import "EuclidianDistanceFunction.h"
 
 @implementation DBScan
-
-- (id)initWithPoints:(NSArray *)points epsilon:(float)epsilon minNumberOfPointsInCluster:(int)minNumberOfPoints {
-    return [self initWithPoints:points
-                        epsilon:epsilon
-     minNumberOfPointsInCluster:minNumberOfPoints
-               distanceFunction:[EuclidianDistanceFunction new]];
-}
+//
+//- (id)initWithPoints:(NSArray *)points epsilon:(float)epsilon minNumberOfPointsInCluster:(int)minNumberOfPoints {
+//    return [self initWithPoints:points
+//                        epsilon:epsilon
+//     minNumberOfPointsInCluster:minNumberOfPoints
+//               distanceFunction:[EuclidianDistanceFunction new]];
+//}
 
 - (id)initWithPoints:(NSArray *)points epsilon:(float)epsilon minNumberOfPointsInCluster:(int)minNumberOfPoints distanceFunction:(id <DistanceFunction>)function {
     self = [super init];
@@ -33,7 +33,7 @@
 }
 
 - (NSArray *)clusters {
-    int numberOfPoints = _points.count;
+    NSUInteger numberOfPoints = _points.count;
 
     _pointsMappedTocluster = [NSMutableArray arrayWithCapacity:numberOfPoints];
     _visitedPoints         = [NSMutableArray arrayWithCapacity:numberOfPoints];
@@ -42,7 +42,7 @@
     NSMutableArray *clusters = [NSMutableArray array];
 
     for (int index = 0; index < numberOfPoints; index++) {
-        CPoint *current = [_points objectAtIndex:index];
+        id current = [_points objectAtIndex:index];
 
         if (![_visitedPoints containsObject:current]) {
             [_visitedPoints addObject:current];
@@ -78,7 +78,7 @@
     return neighbors;
 }
 
-- (Cluster *)expandClusterForPoint:(CPoint *)point withNeighborsIndexes:(NSMutableArray *)neighborsIndexes {
+- (Cluster *)expandClusterForPoint:(id)point withNeighborsIndexes:(NSMutableArray *)neighborsIndexes {
     Cluster *cluster = [Cluster new];
 
     [cluster addPointToCluster:point];
@@ -87,7 +87,7 @@
     for (int index = 0; index < neighborsIndexes.count; index++) {
         int neighborPointID = [[neighborsIndexes objectAtIndex:index] intValue];
 
-        CPoint *cp = [_points objectAtIndex:neighborPointID];
+        id cp = [_points objectAtIndex:neighborPointID];
 
         if (![_visitedPoints containsObject:cp]) {
             [_visitedPoints addObject:cp];
@@ -95,7 +95,7 @@
             NSArray *neighbors = [self findNeighbors:neighborPointID];
 
             if (neighbors.count >= _minNumberOfPoints)
-                [self merge:neighborsIndexes:neighbors];
+                [self merge:neighborsIndexes with:neighbors];
         }
 
         if (![_pointsMappedTocluster containsObject:cp]) {
@@ -107,7 +107,7 @@
     return cluster;
 }
 
-- (void)merge:(NSMutableArray *)currentNeighbors:(NSArray *)newNeighbors {
+- (void)merge:(NSMutableArray *)currentNeighbors with:(NSArray *)newNeighbors {
     for (NSNumber *p in newNeighbors) {
         if (![currentNeighbors containsObject:p])
             [currentNeighbors addObject:p];
@@ -115,7 +115,7 @@
 }
 
 - (NSArray *)computeDistanceMatrix:(NSArray *)points {
-    int numberOfPoints = points.count;
+    NSUInteger numberOfPoints = points.count;
 
     NSMutableArray *distanceMatrix = [NSMutableArray arrayWithCapacity:numberOfPoints];
 
@@ -129,7 +129,7 @@
                 [[distanceMatrix objectAtIndex:row] insertObject:[[NSNumber alloc] initWithFloat:.0f] atIndex:col];
             }
             else {
-                float distance = [_distanceFunction calculate:[points objectAtIndex:row]:[points objectAtIndex:col]];
+                float distance = [_distanceFunction distanceBetween:[points objectAtIndex:row] and:[points objectAtIndex:col]];
 
                 NSNumber *number = [[NSNumber alloc] initWithFloat:distance];
 

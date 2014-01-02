@@ -10,7 +10,11 @@
 
 @implementation EuclidianDistanceFunction
 
-- (float)calculate:(CPoint *)point1:(CPoint *)point2 {
+- (float)distanceBetween:(id)p1 and:(id)p2
+{
+	CPoint* point1 = p1;
+	CPoint* point2 = p2;
+	
     if (point1.dimension != point2.dimension)
         [NSException raise:@"Invalid input" format:@"dimension of both points are not equal"];
 
