@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CPoint.h"
 
 @protocol DistanceFunction <NSObject>
 
-- (float)calculate:(CPoint *)point1:(CPoint *)point2;
+- (float)distanceBetween:(id)point1 and:(id)point2;
 
 @end

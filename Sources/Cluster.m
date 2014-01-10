@@ -1,4 +1,4 @@
-//
+ //
 //  Cluster.m
 //  DBScan
 //
@@ -21,19 +21,19 @@
     return self;
 }
 
-- (int)size {
+- (NSUInteger)count {
     return points.count;
 }
 
-- (void)addPointToCluster:(CPoint *)point {
+- (void)addToCluster:(id)point {
     [points addObject:point];
 }
 
-- (BOOL)contains:(CPoint *)point {
+- (BOOL)contains:(id)point {
     return [points containsObject:point];
 }
 
-- (CPoint *)getPointFromCluster:(int)index {
+- (id)getFromCluster:(int)index {
     return [points objectAtIndex:index];
 }
 
